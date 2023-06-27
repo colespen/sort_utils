@@ -18,6 +18,10 @@ export function sortByPropertyNamesOrder2<
   propertyNames: KeyType[],
   sortDirection: (typeof sortDirections)[number] = "ASC"
 ): InputObject[] {
+    
+  if (propertyNames.length === 0) {
+    throw new Error("Provided propertyNames array is empty");
+  }
   if (input.length <= 1) {
     return input;
   }

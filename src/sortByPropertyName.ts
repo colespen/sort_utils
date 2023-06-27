@@ -16,6 +16,11 @@ export function _sortByPropertyName<
   propertyName: KeyType,
   sortDirection: typeof sortDirections[number] = "ASC"
 ): InputObject[] {
+
+  if (!propertyName) {
+    throw new Error("Provided propertyName is undefined");
+  }
+
   if (input.length <= 1) {
     return input;
   }

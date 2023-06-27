@@ -4,8 +4,8 @@
  * @param {KeyValue} propertyValue value of key to search for
  * @param {"ASC" | "DESC"} sortDirection direction of sorting. Default: Ascending
  * @returns {InputObject[] | []} object found or empty array
- * @description Search for an object in an array of objects
- * by a specified property name (key) and value.
+ * @description Search using hash map to locate object(s) in an array
+ * by the specified property name (key) and value.
  */
 export function _searchByField<InputObject, KeyType extends keyof InputObject>(
   input: InputObject[],

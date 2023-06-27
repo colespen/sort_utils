@@ -53,4 +53,9 @@ describe("_sortByPropertyNamesOrder", () => {
     const sortedArray = _sortByPropertyNamesOrder(input, ["propertyName"]);
     expect(sortedArray).toEqual(input);
   });
+
+  it("should throw an error when provided propertyNames array is empty", () => {
+    const sortedArray = () => _sortByPropertyNamesOrder(dummyData, []);
+    expect(sortedArray).toThrowError("Provided propertyNames array is empty");
+  });
 });
