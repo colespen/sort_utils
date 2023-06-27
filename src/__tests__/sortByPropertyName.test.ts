@@ -1,29 +1,28 @@
-import { _sortByKey } from "../sortByKey";
-import { sortByKey } from "../sortByKey2";
-import { dummyData } from "../dummy-data";
+import { dummyData } from "../dummy-data/dummy-data";
+import { _sortByPropertyName } from "../sortByPropertyName";
+import { sortByPropertyName2 } from "../sortByPropertyName2";
 
 // *** test with _sortByKey and sortByKey ***
 
-describe("_sortByKey", () => {
-  it("should sort array in ascending order by default - type number", () => {
-    const sortedArray = _sortByKey(dummyData, "age");
+describe("_sortByPropertyName", () => {
+  it("should sort array in ascending order by default", () => {
+    const sortedArray = _sortByPropertyName(dummyData, "age");
     for (let i = 0; i < sortedArray.length - 1; i++) {
       expect(sortedArray[i].age <= sortedArray[i + 1].age).toBe(true);
     }
   });
 
-  it("should handle sorting in ascending order - type string", () => {
-    const sortedArray = _sortByKey(dummyData, "name");
+  it("should handle sorting in ascending order", () => {
+    const sortedArray = _sortByPropertyName(dummyData, "name", "ASC");
     for (let i = 0; i < sortedArray.length - 1; i++) {
       expect(
         sortedArray[i].name.localeCompare(sortedArray[i + 1].name)
       ).toBeLessThanOrEqual(0);
     }
-    // console.log(sortedArray)
   });
 
-  it("should sort array in descending order - type string", () => {
-    const sortedArray = _sortByKey(dummyData, "balance", "DESC");
+  it("should sort array in descending order", () => {
+    const sortedArray = _sortByPropertyName(dummyData, "balance", "DESC");
     for (let i = 0; i < sortedArray.length - 1; i++) {
       expect(sortedArray[i].balance >= sortedArray[i + 1].balance).toBe(true);
     }
@@ -31,37 +30,36 @@ describe("_sortByKey", () => {
 
   it("should return the input array when it is empty", () => {
     const input: any[] = [];
-    const sortedArray = _sortByKey(input, "propertyName");
+    const sortedArray = _sortByPropertyName(input, "propertyName");
     expect(sortedArray).toEqual([]);
   });
 
   it("should return the input array when it contains a single element", () => {
     const input = [{ propertyName: "value" }];
-    const sortedArray = _sortByKey(input, "propertyName");
+    const sortedArray = _sortByPropertyName(input, "propertyName");
     expect(sortedArray).toEqual(input);
   });
 });
 
-describe("sortByKey2", () => {
+describe("sortByPropertyName2", () => {
   it("should sort array in ascending order by default - type number", () => {
-    const sortedArray = sortByKey(dummyData, "age");
+    const sortedArray = sortByPropertyName2(dummyData, "age");
     for (let i = 0; i < sortedArray.length - 1; i++) {
       expect(sortedArray[i].age <= sortedArray[i + 1].age).toBe(true);
     }
   });
 
   it("should handle sorting in ascending order - type string", () => {
-    const sortedArray = sortByKey(dummyData, "name");
+    const sortedArray = sortByPropertyName2(dummyData, "name");
     for (let i = 0; i < sortedArray.length - 1; i++) {
       expect(
         sortedArray[i].name.localeCompare(sortedArray[i + 1].name)
       ).toBeLessThanOrEqual(0);
     }
-    console.log(sortedArray);
   });
 
   it("should sort array in descending order - type string", () => {
-    const sortedArray = sortByKey(dummyData, "balance", "DESC");
+    const sortedArray = sortByPropertyName2(dummyData, "balance", "DESC");
     for (let i = 0; i < sortedArray.length - 1; i++) {
       expect(sortedArray[i].balance >= sortedArray[i + 1].balance).toBe(true);
     }
@@ -69,13 +67,13 @@ describe("sortByKey2", () => {
 
   it("should return the input array when it is empty", () => {
     const input: any[] = [];
-    const sortedArray = sortByKey(input, "propertyName");
+    const sortedArray = sortByPropertyName2(input, "propertyName");
     expect(sortedArray).toEqual([]);
   });
 
   it("should return the input array when it contains a single element", () => {
     const input = [{ propertyName: "value" }];
-    const sortedArray = sortByKey(input, "propertyName");
+    const sortedArray = sortByPropertyName2(input, "propertyName");
     expect(sortedArray).toEqual(input);
   });
 });

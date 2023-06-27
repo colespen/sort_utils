@@ -6,7 +6,7 @@
  * Sort an array of objects by a specified property name (key) in specified direction.
  * Default direction: ascending.
  */
-export function sortByKey<InputObject, KeyType extends keyof InputObject>(
+export function sortByPropertyName2<InputObject, KeyType extends keyof InputObject>(
     input: InputObject[],
     propertyName: KeyType,
     options: "ASC" | "DESC" = "ASC"
