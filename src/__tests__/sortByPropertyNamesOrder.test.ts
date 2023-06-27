@@ -1,9 +1,8 @@
 import { dummyData } from "../dummy-data/dummy-data";
 import { _sortByPropertyNamesOrder } from "../sortByPropertyNamesOrder";
+// import { sortByPropertyNamesOrder2 } from "../sortByPropertyNamesOrder2";
 
-// console.log(_sortByPropertyNamesOrder(dummyData, ["age", "name"]));
-
-describe("_sortByPropertyName", () => {
+describe("_sortByPropertyNamesOrder", () => {
   it("should sort array in ascending order by default", () => {
     const sortedArray = _sortByPropertyNamesOrder(dummyData, ["age"]);
     for (let i = 0; i < sortedArray.length - 1; i++) {

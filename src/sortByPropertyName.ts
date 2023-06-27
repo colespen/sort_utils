@@ -5,6 +5,7 @@ const sortDirections = ["ASC", "DESC"] as const;
  * @param {InputObject[]} input array of objects
  * @param {KeyType} propertyName key of object to sort by
  * @param {"ASC" | "DESC"} sortDirection direction of sorting. Default: Ascending
+ * @returns {InputObject[]} sorted array
  * @description Sort an array of objects by a specified property name (key) in specified direction.
  */
 export function _sortByPropertyName<
@@ -14,7 +15,7 @@ export function _sortByPropertyName<
   input: InputObject[],
   propertyName: KeyType,
   sortDirection: typeof sortDirections[number] = "ASC"
-) {
+): InputObject[] {
   if (input.length <= 1) {
     return input;
   }

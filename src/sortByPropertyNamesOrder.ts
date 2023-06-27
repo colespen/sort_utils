@@ -1,9 +1,12 @@
+const sortDirections = ["ASC", "DESC"] as const;
+
 /**
  * @param {InputObject[]} input array of objects
  * @param {KeyType[]} propertyNames array of keys of object to sort by
  * @param {"ASC" | "DESC"} sortDirection direction of sorting. Default: Ascending
+ * @returns {InputObject[]} sorted array
  * @description Sort an array of objects by a specified property names (array of keys) in specified direction.
- * 
+ *
  * Use sortByProprteryName for faster single key sorting
  */
 export function _sortByPropertyNamesOrder<
@@ -12,8 +15,8 @@ export function _sortByPropertyNamesOrder<
 >(
   input: InputObject[],
   propertyNames: KeyType[],
-  sortDirection: "ASC" | "DESC" = "ASC"
-) {
+  sortDirection: (typeof sortDirections)[number] = "ASC"
+): InputObject[] {
   if (input.length <= 1) {
     return input;
   }
