@@ -1,4 +1,5 @@
-const sortDirection = ["ASC", "DESC"] as const;
+const sortDirections = ["ASC", "DESC"] as const;
+// as const infers as tuple of string literals
 
 /**
  * @param {InputObject[]} input array of objects
@@ -12,7 +13,7 @@ export function _sortByPropertyName<
 >(
   input: InputObject[],
   propertyName: KeyType,
-  sortDirection: "ASC" | "DESC" = "ASC"
+  sortDirection: typeof sortDirections[number] = "ASC"
 ) {
   if (input.length <= 1) {
     return input;

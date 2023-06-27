@@ -1,7 +1,7 @@
 // TRIED TO MAKE FASTER
 /**
- * @param {{ [key: string]: any }[]} input array of objects
- * @param {string} propertyName key of object to sort
+ * @param {InputObject[]} input array of objects
+ * @param {KeyType} propertyName key of object to sort
  * @param {"ASC" | "DESC"} options direction of sorting
  * Sort an array of objects by a specified property name (key) in specified direction.
  * Default direction: ascending.
