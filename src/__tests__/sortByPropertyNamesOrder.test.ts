@@ -42,12 +42,6 @@ describe("_sortByPropertyNamesOrder", () => {
     }
   });
 
-  it("should return the input array when it is empty", () => {
-    const input: any[] = [];
-    const sortedArray = _sortByPropertyNamesOrder(input, ["propertyName"]);
-    expect(sortedArray).toEqual([]);
-  });
-
   it("should return the input array when it contains a single element", () => {
     const input = [{ propertyName: "value" }];
     const sortedArray = _sortByPropertyNamesOrder(input, ["propertyName"]);
@@ -56,6 +50,13 @@ describe("_sortByPropertyNamesOrder", () => {
 
   it("should throw an error when provided propertyNames array is empty", () => {
     const sortedArray = () => _sortByPropertyNamesOrder(dummyData, []);
-    expect(sortedArray).toThrowError("Provided propertyNames array is empty");
+    expect(sortedArray).toThrowError("propertyNames array is empty");
+  });
+  
+  it("should throw an error when array is empty", () => {
+    const input: any[] = [];
+    const sortedArray = () =>
+      _sortByPropertyNamesOrder(input, ["propertyName"]);
+    expect(sortedArray).toThrow("Input array is empty");
   });
 });

@@ -14,11 +14,18 @@ export function _sortByPropertyName<
 >(
   input: InputObject[],
   propertyName: KeyType,
-  sortDirection: typeof sortDirections[number] = "ASC"
+  sortDirection: (typeof sortDirections)[number] = "ASC"
 ): InputObject[] {
+  if (!Array.isArray(input)) {
+    throw new Error("Input is not an array");
+  }
+
+  if ((input as []).length === 0) {
+    throw new Error("Input array is empty");
+  }
 
   if (!propertyName) {
-    throw new Error("Provided propertyName is undefined");
+    throw new Error("PropertyName is undefined");
   }
 
   if (input.length <= 1) {
@@ -29,9 +36,11 @@ export function _sortByPropertyName<
     if (a[propertyName] < b[propertyName]) {
       return sortDirection === "DESC" ? 1 : -1;
     }
+
     if (a[propertyName] > b[propertyName]) {
       return sortDirection === "DESC" ? -1 : 1;
     }
+
     return 0;
   });
 }

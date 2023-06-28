@@ -39,4 +39,17 @@ describe("_sortByPropertyNamesOrder", () => {
 
     expect(containsCorrectAge).toBe(true);
   });
+
+  it("should return an empty array when no match is found", () => {
+    const searchResult = _searchByField(dummyData, "age", 101);
+    expect(searchResult).toEqual([]);
+  });
+
+  // it("should throw an error when either field is undefined", () => {
+  //   const emptyField = "";
+  //   const sortedArray = () => _searchByField(dummyData, emptyField, emptyField);
+  //   expect(sortedArray).toThrowError("Provided field is undefined");
+  // });
+
+  
 });

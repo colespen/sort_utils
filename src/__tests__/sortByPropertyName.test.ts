@@ -28,19 +28,20 @@ describe("_sortByPropertyName", () => {
     }
   });
 
-  it("should return the input array when it is empty", () => {
-    const input: any[] = [];
-    const sortedArray = _sortByPropertyName(input, "propertyName");
-    expect(sortedArray).toEqual([]);
-  });
-
   it("should return the input array when it contains a single element", () => {
     const input = [{ propertyName: "value" }];
     const sortedArray = _sortByPropertyName(input, "propertyName");
     expect(sortedArray).toEqual(input);
   });
+
+  it("should throw an error when array is empty", () => {
+    const input: any[] = [];
+    const sortedArray = () => _sortByPropertyName(input, "propertyName");
+    expect(sortedArray).toThrow("Input array is empty");
+  });
 });
 
+////
 describe("sortByPropertyName2", () => {
   it("should sort array in ascending order by default - type number", () => {
     const sortedArray = sortByPropertyName2(dummyData, "age");
@@ -65,15 +66,15 @@ describe("sortByPropertyName2", () => {
     }
   });
 
-  it("should return the input array when it is empty", () => {
-    const input: any[] = [];
-    const sortedArray = sortByPropertyName2(input, "propertyName");
-    expect(sortedArray).toEqual([]);
-  });
-
   it("should return the input array when it contains a single element", () => {
     const input = [{ propertyName: "value" }];
     const sortedArray = sortByPropertyName2(input, "propertyName");
     expect(sortedArray).toEqual(input);
+  });
+
+  it("should throw an error when array is empty", () => {
+    const input: any[] = [];
+    const sortedArray = () => _sortByPropertyName(input, "propertyName");
+    expect(sortedArray).toThrow("Input array is empty");
   });
 });

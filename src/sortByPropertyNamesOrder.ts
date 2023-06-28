@@ -17,9 +17,19 @@ export function _sortByPropertyNamesOrder<
   propertyNames: KeyType[],
   sortDirection: (typeof sortDirections)[number] = "ASC"
 ): InputObject[] {
-    
-  if (propertyNames.length === 0) {
-    throw new Error("Provided propertyNames array is empty");
+  if (!Array.isArray(input)) {
+    throw new Error("Input is not an array");
+  }
+  
+  if ((input as []).length === 0) {
+    throw new Error("Input array is empty");
+  }
+
+  if (!propertyNames) {
+    throw new Error("propertyNames is undefined");
+  }
+  if (propertyNames.length === 0) { 
+    throw new Error("propertyNames array is empty");
   }
   if (input.length <= 1) {
     return input;
@@ -34,10 +44,12 @@ export function _sortByPropertyNamesOrder<
       if (aVal < bVal) {
         return sortDirection === "DESC" ? 1 : -1;
       }
+
       if (aVal > bVal) {
         return sortDirection === "DESC" ? -1 : 1;
       }
     }
+
     return 0; // again if all values are equal keep prev order
   });
 }

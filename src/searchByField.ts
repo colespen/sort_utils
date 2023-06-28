@@ -12,9 +12,16 @@ export function _searchByField<InputObject, KeyType extends keyof InputObject>(
   propertyName: KeyType,
   propertyValue: InputObject[KeyType]
 ): InputObject[] | [] {
+  if (!Array.isArray(input) || (input as []).length === 0) {
+    throw new Error("Input is not an array or is empty");
+  }
 
-  if (!propertyName || !propertyValue) {
-    throw new Error("Provided field is undefined");
+  if (!propertyName) {
+    throw new Error("PropertyName is undefined");
+  }
+
+  if (!propertyValue) {
+    throw new Error("PropertyValue is undefined");
   }
 
   const resultMap = new Map();
