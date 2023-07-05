@@ -1,4 +1,4 @@
-# sort_utils
+# utilities safely typed and tested
 
 `npm install`
 
