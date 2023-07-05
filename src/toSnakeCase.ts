@@ -5,10 +5,20 @@ export function _toSnakeCase(string: string): string {
 
   if (string.length === 0) return string;
 
-  return string
-    .trim()
-    .replace(/(?:^\w|[A-Z]|\b\w)/g, (word, i) => {
+  // match dash between letters
+  const regex_ = /(?<=\w)-(?=\w)/g;
+  // match first character of word
+  // ensures that next character is either alpha or end of string
+  const regexAlpha = /(?:^\w|[A-Z]|\b\w)(?![^a-zA-Z])/g;
+
+  string = string.trim();
+
+  if (string.match(regex_)) {
+    string = string.replace(regex_, "_");
+  } else {
+    string = string.replace(regexAlpha, (word, i) => {
       return i === 0 ? word.toLowerCase() : "_" + word.toLowerCase();
-    })
-    .replace(/\s+/g, "");
+    });
+  }
+  return string.replace(/\s+/g, "");
 }

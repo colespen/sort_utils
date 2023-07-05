@@ -27,6 +27,11 @@ describe("_toSnakeCase", () => {
     expect(_toSnakeCase(string)).toBe("!@#$%^&*()-+{}|:\"<>?[];',./\\");
   });
 
+  it("should convert kebab case to snake case", () => {
+    const string = "some-sort-of-string";
+    expect(_toSnakeCase(string)).toBe("some_sort_of_string");
+  });
+
   it("should throw an error if input is not a string", () => {
     const string = test;
     const convertedString = () => _toSnakeCase(string as unknown as string);
