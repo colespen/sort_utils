@@ -16,11 +16,11 @@ export function _searchByField<InputObject, KeyType extends keyof InputObject>(
   }
 
   if (!propertyName) {
-    throw new Error("PropertyName is undefined");
+    throw new Error("propertyName is undefined");
   }
 
   if (!propertyValue) {
-    throw new Error("PropertyValue is undefined");
+    throw new Error("propertyValue is undefined");
   }
 
   const resultMap = new Map();
@@ -29,7 +29,7 @@ export function _searchByField<InputObject, KeyType extends keyof InputObject>(
     const fieldValue = obj[propertyName];
 
     if (fieldValue && fieldValue === propertyValue) {
-      // push all matching objects to the same array in Map
+      // push all matching objects to its key array in Map
       const objectMatch = resultMap.get(fieldValue) || [];
       objectMatch.push(obj);
       resultMap.set(fieldValue, objectMatch);

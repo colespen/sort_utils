@@ -45,11 +45,17 @@ describe("_sortByPropertyNamesOrder", () => {
     expect(searchResult).toEqual([]);
   });
 
-  // it("should throw an error when either field is undefined", () => {
-  //   const emptyField = "";
-  //   const sortedArray = () => _searchByField(dummyData, emptyField, emptyField);
-  //   expect(sortedArray).toThrowError("Provided field is undefined");
-  // });
+  it("should throw an error when propertyName is undefined", () => {
+    const emptyField = "";
+    const sortedArray = () =>
+      _searchByField<{}, never>(dummyData, emptyField as never, 101 as never);
+    expect(sortedArray).toThrowError("propertyName is undefined");
+  });
 
-  
+  it("should throw an error when propertyName is undefined", () => {
+    const emptyField = "";
+    const sortedArray = () =>
+      _searchByField<{}, never>(dummyData, "age" as never, emptyField as never);
+    expect(sortedArray).toThrowError("propertyValue is undefined");
+  });
 });
