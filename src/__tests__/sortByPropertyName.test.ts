@@ -1,6 +1,6 @@
 import { dummyData } from "../dummy-data/dummy-data";
 import { _sortByPropertyName } from "../sortByPropertyName";
-import { sortByPropertyName2 } from "../sortByPropertyName2";
+import { sortByPropertyName2 } from "../optimized/sortByPropertyName2";
 
 // *** test with _sortByKey and sortByKey ***
 
