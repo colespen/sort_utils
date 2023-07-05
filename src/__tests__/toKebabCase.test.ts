@@ -1,7 +1,6 @@
 import { _toKebabCase } from "../toKebabCase";
 
 describe("_toKebabCase", () => {
-  //write a test that checks if the function returns a string converted to camelCase
   it("should return a string converted to kebab-case", () => {
     const string = "turn this to kebab case";
     expect(_toKebabCase(string)).toBe("turn-this-to-kebab-case");

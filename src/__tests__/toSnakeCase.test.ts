@@ -1,7 +1,6 @@
 import { _toSnakeCase } from "../toSnakeCase";
 
 describe("_toSnakeCase", () => {
-  //write a test that checks if the function returns a string converted to camelCase
   it("should return a string converted to snake_case", () => {
     const string = "turn this to snake case";
     expect(_toSnakeCase(string)).toBe("turn_this_to_snake_case");

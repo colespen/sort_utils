@@ -1,7 +1,6 @@
 import { _toPascalCase } from "../toPascalCase";
 
 describe("_toPascalCase", () => {
-  //write a test that checks if the function returns a string converted to camelCase
   it("should return a string converted to PascalCase", () => {
     const string = "turn this to pascal case";
     expect(_toPascalCase(string)).toBe("TurnThisToPascalCase");
