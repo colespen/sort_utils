@@ -1,6 +1,8 @@
-# utilities safely typed and tested
+# basic utilities safely typed and well tested
+
+### run:
 
 `npm install`
 
-`npx jest`
+`npm run test`
 
