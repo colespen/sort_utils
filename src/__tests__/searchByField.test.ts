@@ -1,7 +1,7 @@
 import { dummyData } from "../dummy-data/dummy-data";
 import { _searchByField } from "../searchByField";
 
-describe("_sortByPropertyNamesOrder", () => {
+describe("searchByField", () => {
   it("should return the object(s) with matching field provided - 'age': 25", () => {
     const searchResult = _searchByField(dummyData, "age", 25);
     let containsCorrectAge = false;
